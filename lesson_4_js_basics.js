@@ -8,7 +8,7 @@ if (typeof arg1 === 'string'  && typeof  arg2 === 'string'){
     result = arg1 + ' ' + arg2; 
 }
 else if (typeof arg1 === 'number'  && typeof  arg2 === 'number'){
-    result = arg1 + arg2; 
+    result = arg1 * arg2; 
 } else {
     result = ' There are no type matches for operation'
 }
@@ -34,8 +34,8 @@ isNegative(0);
 /* 3. Написати функцію, яка повертає true якщо перший аргумент ділиться на другий без остачі, 
 або якщо ні - повертає false */
 function divider(num1, num2) {
-    if (num1%num2 === 0) return console.log (true)
-    else return console.log(false)
+    if (num1%num2 === 0) return true
+    else return false
 }
 
 // Приклад роботи функції:
