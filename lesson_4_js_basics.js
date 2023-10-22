@@ -34,8 +34,7 @@ isNegative(0);
 /* 3. Написати функцію, яка повертає true якщо перший аргумент ділиться на другий без остачі, 
 або якщо ні - повертає false */
 function divider(num1, num2) {
-    if (num1%num2 === 0) return true
-    else return false
+    return num1 % num2 === 0;
 }
 
 // Приклад роботи функції:
