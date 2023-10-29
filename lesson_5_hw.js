@@ -40,30 +40,42 @@ console.log(arr); // [1, 2, 3]
     - кожне речення починає з великої букви, а всі наступні символи в речені робить маленькими
 */
 function formatText(text) {
-  
+  let sentences = text.split('.'); 
+  let res = []; 
+  for (const item of sentences) {
+    let newSentence = item.trim();
+    let updSentence = newSentence[0].toUpperCase() + newSentence.slice(1).toLowerCase();  
+    res.push(updSentence)
+  }
+  return res.join('. '); 
 }
 
-console.log(formatText("heLLo, this is My teXT.   have A NiCe DaY  ")); // "Hello, this is my text. Have a nice day"
+console.log(formatText("   heLLo, this is My teXT.   have A NiCe DaY  ")); // "Hello, this is my text. Have a nice day"
 console.log(formatText(" Hello woRld   ")); // "Hello world"
 
 // /*
 //     3. Написати функцію, яка поверне число голосних букв в строкі
 // */
 
-// function countVowels(arr) {
-//   // Ваш код
-// }
+function countVowels(str) { 
+  let vowels = str.match(/(a|o|u|i|e)/g); 
+  return vowels.length;
+}
 
-// console.log(countVowels("aaaat")); // виводить 4
-// console.log(countVowels("Hello world")); // виводить 3
+console.log(countVowels("aaaat")); // виводить 4
+console.log(countVowels("Hello world")); // виводить 3
 
 /*
     4. Написати функцію, яка видаляє всі спеціальні символи зі строки (залишає лише числа, букви і пробіли в будь-якому регістрі)
 */
-// function clearStr(str) {
-//   // Ваш код
-// }
+function clearStr(str) {
+  let pattern = /[a-z0-9\s]+/gi; 
+  let res = str.match(pattern); 
 
-// console.log(clearStr("My var: 22 ")); // виведе "My var 22"
-// console.log(clearStr("Foo %$#% bar")); // виведе "Foo bar"
-// console.log(clearStr("; SELECT * FROM passwords ")); // виведе "SELECT FROM passwords"
+  return res.join(''); 
+ 
+}
+
+console.log(clearStr("My var: 22 ")); // виведе "My var 22"
+console.log(clearStr("Foo %$#% bar")); // виведе "Foo bar"
+console.log(clearStr("; SELECT * FROM passwords ")); // виведе "SELECT FROM passwords"
