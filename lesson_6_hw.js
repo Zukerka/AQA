@@ -53,7 +53,15 @@ console.log(arrayOfEvens(initialArray2)); // виводить [ 2, 6, 12 ]
 кожний наступний елемент послідовності на самого себе. Максимальне значення масиву не повинно перевищувати число 30.
  */
 function createArray(element) {
-    // Ваш код
+    let arr = []; 
+    let increaseEl = 0; 
+
+    while (increaseEl < 30) {
+        increaseEl += element 
+        arr.push(increaseEl)
+    }
+
+    return arr; 
 }
 
 console.log(createArray(5)); // виведе [ 5, 10, 15, 20, 25, 30 ]
