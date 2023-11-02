@@ -3,32 +3,50 @@
     сортує його за алфавітним порядком і повертає (у масиві не повинно бути пробілів як елементів)
  */
 
+    /*
 const str = "Це довільний текст для створення масиву слів ";
 function stringToArray(str) {
-    // Ваш код
+    let newStr = str.trim().toLowerCase().split(' ').sort();
+    return newStr
 }
-
-console.log(stringToArray(str));    // виводить [ 'для', 'довільний', 'масиву', 'слів', 'створення', 'текст', 'це' ]
-
+    
+console.log(stringToArray(str));   // виводить [ 'для', 'довільний', 'масиву', 'слів', 'створення', 'текст', 'це' ]
+*/
 /*
 2. Написати функцію, яка видаляє з масива елементи, що дублюються, та повертає масив оригінальних елементів,
 відсортованих за зростанням
  */
 const initialArray = [1, 4, 6, 6, 7, 5, 34, 5, 1000, 66, 1];
 function removeDuplicatesAndSort(arr) {
-    // Ваш код
+    let sortedArray = arr.sort(function (a, b) {
+        return a - b;
+    }); 
+    console.log(sortedArray);
+
+    let comparedArray = sortedArray.map((el, index, array) => { 
+        console.log(array[index]);
+        // console.log(array[index + 1]);
+    })
+    
 }
 
 console.log(removeDuplicatesAndSort(initialArray)); // виводить [ 1, 4, 5, 6, 7, 34, 66, 1000 ]
 /*
 3. Написати функцію, яка поверне масив парних чисел
  */
+/*
 const initialArray2 = [2, 3, 6, 7, 9, 12];
 function arrayOfEvens(arr) {
-    // Ваш код
+    let sortedArray = [];
+    arr.map(el => {
+        if (el %2 === 0){ return sortedArray.push(el);}
+    })
+
+    return sortedArray;
 }
 
 console.log(arrayOfEvens(initialArray2)); // виводить [ 2, 6, 12 ]
+*/
 
 /*
 4. Написати функцію, яка сформує масив з послідовності чисел, формуючи його з аргумента, який збільшує
