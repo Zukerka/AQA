@@ -4,45 +4,13 @@
   по своєму реалізує метод getJobType(), використовуючи для jobType приватну властивість. Кожен з класів 
   повинен бути організований у окремому модулі, які лежать у папці modules. Приклад імпортів та викликів нижче.*/
 
-class Employee { 
-  constructor(id, salary) { 
-    this.id = id; 
-    this.salary = salary
-  }
-
-  getJobType() { }; 
-
-  static compareSalary(user1, user2) { 
-    if (user1.salary > user2.salary) {
-      return console.log(`User with id ${user1.id} has greater salary`)
-    } else if (user1.salary < user2.salary) {
-      return console.log(`User with id ${user2.id} has greater salary`);
-    } else { 
-      console.log('Salaries are equal');
-    }
-  }
-  
-}
-
-class Dev extends Employee {
-  getJobType() { 
-    return 'I am a Dev';
-  }; 
-
-}
-
-class PM extends Employee { 
-  getJobType() { 
-    return 'I am a PM';
-  }; 
-}
-// import { Dev } from "./modules/dev.js";
-// import { PM } from "./modules/pm.js";
-// import { Employee } from "./modules/employee.js";
+import { Dev } from "./modules/dev.js";
+import { PM } from "./modules/pm.js";
+import { Employee } from "./modules/employee.js";
 // import sortBySalary from "./helpers/sorter.js";
 
 const dev = new Dev(1, 2000);
-const pm = new PM(2, 1500);
+const pm = new PM(2, 2500);
 const dev2 = new Dev(3, 2000);
 console.log(dev.getJobType()); // виведе I am a Dev
 console.log(pm.getJobType()); // виведе I am a PM
@@ -53,22 +21,16 @@ console.log(Employee.compareSalary(dev, dev2)); // виведе salaries are equ
    зробити властивість id незмінною та унеможливити її видалення. Строки для перевірки 
    зміни чи видалення властивості можна коментувати для перевірки роботи скрипта у подальшому. */
 
-// const newDev = new Dev(1, 3000);
-"use strict"
-const newDev = { 
-  id: 1, 
-  salary: 3000
-}
-// console.log(newDev);
-console.log(Object.getOwnPropertyDescriptors(newDev)); 
+const newDev = new Dev(1, 3000);
+
 Object.defineProperty(newDev, 'id', {
   writable: false, 
   configurable: false
 })
-console.log(Object.getOwnPropertyDescriptors(newDev)); 
 
-newDev.id = 15; // видасть помилку TypeError: Cannot assign to read only property 'id' of object '#<Dev>'
-delete newDev.id; // видасть помилку TypeError: Cannot delete property 'id' of #<Dev>
+// newDev.id = 15; // видасть помилку TypeError: Cannot assign to read only property 'id' of object '#<Dev>'
+// delete newDev.id; // видасть помилку TypeError: Cannot delete property 'id' of #<Dev>
+
 for (let key in newDev) {
   console.log(newDev[key]); // виведе почергово 1 та 3000
 }
