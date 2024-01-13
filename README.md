@@ -1,1 +1,1 @@
-Hillel QA Automation Project 
+Hillel QA Automation Project (Java Script Practise) 
